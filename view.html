@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drone Flight</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/png" href="https://vignette.wikia.nocookie.net/terminator/images/6/64/Favicon.ico/revision/latest?cb=20071009215901"/>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">HK-Aerial Flight Controls</h1>
+      <p class="lead">3 buttons to control a drone using express routes. Voice command using express routes.</p>
+    </div>
+  </div>
+  <div>
+    <h2>Manual Command</h2>
+    <button id="takeoff" type="button" class="btn btn-success btn-lg">Take Off</button>
+    <button id="clockwise" type="button" class="btn btn-primary btn-lg">Turn Clockwise</button>
+    <button id="land" type="button" class="btn btn-danger btn-lg">Land</button>
+  </div>
+  <br>
+  <div>
+    <h2>Voice Command</h2>
+    <p>Press the button then say a phrase to test the recognition.</p>
+
+    <button id="speak">Start new test</button>
+
+    <div>
+      <p class="phrase">Phrase...</p>
+      <input type='text' id="result" class="result" value="Right or wrong?">
+      <p class="output">...diagnostic messages</p>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+<!-- Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- speech recognition script -->
+<script src="script.js"></script>
+<!-- My JavaScript -->
+<script>
+  $( document ).ready(function() {
+    console.log( "ready!" );
+
+    // TAKE OFF BUTTON
+    $('#takeoff').on('click', (event) => {
+      event.preventDefault();
+      console.log('TAKE OFF!');
+      $.get('/api/takeoff/', (data) => {});
+    });
+
+    // TURN CLOCKWISE BUTTON
+    $('#clockwise').on('click', (event) => {
+      event.preventDefault();
+      console.log('TURN CLOCKWISE!');
+      $.get('/api/clockwise/', (data) => {});
+    });
+
+    // LAND BUTTON
+    $('#land').on('click', (event) => {
+      event.preventDefault();
+      console.log('LAND!');
+      $.get('/api/land/', (data) => {});
+    });
+
+    let oldVal = document.getElementById('result').value;
+
+    function checkChange(){
+
+      if(document.getElementById('result').value !== oldVal) {
+        console.log("value changed");
+        if (document.getElementById('result').value === 'Taking off!') {
+          $.get('/api/takeoff/', (data) => {});
+        } else if (document.getElementById('result').value === 'Turning Clockwise!') {
+          $.get('/api/clockwise/', (data) => {});
+        } else if (document.getElementById('result').value === 'Landing!') {
+          $.get('/api/land/', (data) => {});
+        }
+        oldVal = document.getElementById('result').value;
+      } else {
+        console.log('nope');
+      }
+    }
+    setInterval(checkChange, 2000);
+
+    // SPEECH TO DRONE
+
+
+
+  });
+</script>
+
+</body>
+</html>
