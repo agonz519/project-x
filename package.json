@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "ar-drone": "git://github.com/felixge/node-ar-drone.git",
+    "ar-drone-png-stream": "^2.0.0",
     "body-parser": "^1.18.3",
     "browserify": "^16.2.2",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "telnet-client": "^0.15.5"
   }
 }

@@ -16,6 +16,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname)));
 
+require('ar-drone-png-stream')(client, { port: 8020 });
+
 // Routes
 // =============================================================
 
