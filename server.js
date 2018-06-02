@@ -29,14 +29,59 @@ app.get("/api/takeoff", function(req, res) {
   client.takeoff();
 });
 
+app.get("/api/calibrate", function(req, res) {
+  console.log('calibrating...');
+  client.calibrate(0);
+});
+
+app.get("/api/move-left", function(req, res) {
+  console.log('moving left...');
+  client.left(0.1);
+});
+
+app.get("/api/move-right", function(req, res) {
+  console.log('moving right...');
+  client.right(0.1);
+});
+
+app.get("/api/move-up", function(req, res) {
+  console.log('moving up...');
+  client.up(0.3);
+});
+
+app.get("/api/move-down", function(req, res) {
+  console.log('moving down...');
+  client.down(0.3);
+});
+
+app.get("/api/move-front", function(req, res) {
+  console.log('moving front...');
+  client.front(0.1);
+});
+
+app.get("/api/move-back", function(req, res) {
+  console.log('moving back...');
+  client.back(0.1);
+});
+
+app.get("/api/turn-left", function(req, res) {
+  console.log('turning left...');
+  client.counterClockwise(0.5);
+});
+
+app.get("/api/turn-right", function(req, res) {
+  console.log('turning right...');
+  client.clockwise(0.5);
+});
+
+app.get("/api/stop", function(req, res) {
+  console.log('stopping current command...');
+  client.stop();
+});
+
 app.get("/api/land", function(req, res) {
   console.log('landing...');
   client.land();
-});
-
-app.get("/api/clockwise", function(req, res) {
-  console.log('turning clockwise...');
-  client.clockwise(0.5);
 });
 
 // Starts the server to begin listening
