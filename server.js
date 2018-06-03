@@ -1,15 +1,29 @@
 // Dependencies
 // =============================================================
-var express = require("express");
-var bodyParser = require("body-parser");
-var path = require("path");
+var express = require('express');
+var bodyParser = require('body-parser');
+var fs = require('fs');
+var https = require('https');
+var path = require('path');
 var arDrone = require('ar-drone');
 var client  = arDrone.createClient({ip: '192.168.1.1'});
+
+// localhost certificate
+// =============================================================
+var certOptions = {
+  key: fs.readFileSync(path.resolve('serverkey/server.key')),
+  cert: fs.readFileSync(path.resolve('serverkey/server.crt'))
+};
+
 
 // Sets up the Express App
 // =============================================================
 var app = express();
+
 var PORT = 8080;
+
+var server = https.createServer(certOptions, app).listen(443);
+
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -89,5 +103,5 @@ app.get("/api/land", function(req, res) {
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
-  console.log("App listening on http://localhost:" + PORT);
+  console.log("App listening on https://localhost:443");
 });
