@@ -6,7 +6,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('TAKE OFF!');
     $.ajax({
-      url: 'http://localhost:8080/api/takeoff',
+      url: 'https://localhost:8002/api/takeoff',
       method: "GET",
     });
   });
@@ -16,7 +16,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('CALIBRATE!');
     $.ajax({
-      url: 'http://localhost:8080/api/calibrate',
+      url: 'https://localhost:8002/api/calibrate',
       method: "GET",
     });
   });
@@ -26,7 +26,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('MOVE LEFT!');
     $.ajax({
-      url: 'http://localhost:8080/api/move-left',
+      url: 'https://localhost:8002/api/move-left',
       method: "GET",
     });
   });
@@ -36,7 +36,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('MOVE RIGHT!');
     $.ajax({
-      url: 'http://localhost:8080/api/move-right',
+      url: 'https://localhost:8002/api/move-right',
       method: "GET",
     });
   });
@@ -46,7 +46,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('MOVE UP!');
     $.ajax({
-      url: 'http://localhost:8080/api/move-up',
+      url: 'https://localhost:8002/api/move-up',
       method: "GET",
     });
   });
@@ -56,7 +56,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('MOVE DOWN!');
     $.ajax({
-      url: 'http://localhost:8080/api/move-down',
+      url: 'https://localhost:8002/api/move-down',
       method: "GET",
     });
   });
@@ -66,7 +66,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('MOVE FRONT!');
     $.ajax({
-      url: 'http://localhost:8080/api/move-front',
+      url: 'https://localhost:8002/api/move-front',
       method: "GET",
     });
   });
@@ -76,7 +76,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('MOVE BACK!');
     $.ajax({
-      url: 'http://localhost:8080/api/move-back',
+      url: 'https://localhost:8002/api/move-back',
       method: "GET",
     });
   });
@@ -86,7 +86,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('TURN LEFT!');
     $.ajax({
-      url: 'http://localhost:8080/api/turn-left',
+      url: 'https://localhost:8002/api/turn-left',
       method: "GET",
     });
   });
@@ -96,7 +96,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('TURN RIGHT!');
     $.ajax({
-      url: 'http://localhost:8080/api/turn-right',
+      url: 'https://localhost:8002/api/turn-right',
       method: "GET",
     });
   });
@@ -106,7 +106,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('STOP!');
     $.ajax({
-      url: 'http://localhost:8080/api/stop',
+      url: 'https://localhost:8002/api/stop',
       method: "GET",
     });
   });
@@ -116,7 +116,7 @@ $( document ).ready(function() {
     event.preventDefault();
     console.log('LAND!');
     $.ajax({
-      url: 'http://localhost:8080/api/land',
+      url: 'https://localhost:8002/api/land',
       method: "GET",
     });
   });
