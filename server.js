@@ -22,7 +22,7 @@ var app = express();
 
 var PORT = 8080;
 
-var server = https.createServer(certOptions, app).listen(443);
+var server = https.createServer(certOptions, app).listen(8002);
 
 
 // Sets up the Express app to handle data parsing
@@ -103,5 +103,5 @@ app.get("/api/land", function(req, res) {
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
-  console.log("App listening on https://localhost:443");
+  console.log("App listening on https://localhost:8002");
 });
